@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -29,6 +30,18 @@ class HomeController extends Controller
     public function welcome()
     {
       return view('index');
+    }
+
+    public function registro(){
+      $request=request();
+      $request->validate([
+          'name'=> 'required',
+          'last_name'=> 'required',
+          'email'=>'required|email',
+          'password'=>'required|min:7'
+      ]);
+
+  
     }
 
     public function faq()

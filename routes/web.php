@@ -17,6 +17,11 @@
 
 Route::get('/', 'HomeController@welcome');
 
+Route::post('/register', 'HomeController@registro');
+
+Route::get('/register', function(){
+            return redirect('/');});
+
 Route::get('/faq', 'HomeController@faq');
 
 // Auth::routes();

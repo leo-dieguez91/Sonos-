@@ -1,6 +1,7 @@
 @extends('layouts.body')
 
 @section('section')
+
   <!-- Registro & portada -->
   <div class="portada-inicial justify-content-center">
     <div class="container">
@@ -8,26 +9,27 @@
         <div class="col-12 mt-3">
           <img src="image/logo.png" alt="logo" class="mt-5" style="width: 100%; max-width: 405px;">
           <em class="titulos d-none d-sm-block text-dark mb-5">La música nos une</em>
-          <br><br><br><br>
+          <br><br>
           <div class="row justify-content-center">
             <div class="col-8 col-md-6 col-lg-6 row-registro mb-4">
-              <form class="mt-3" method="post" enctype="multipart/form-data">
+              <form class="mt-3" method="post" enctype="multipart/form-data" action="/register">
                 @csrf
                 <div class="form-inline">
-                  <input class="form-control col-6 col-sm-5" type="text" placeholder="Nombre" name="name" value="">
-                  <input class="form-control col-6 col-sm-6 ml-sm-auto" type="text" placeholder="Apellido" name="last_name" value="">
+                  <input class="form-control col-6 col-sm-5" type="text" placeholder="Nombre" name="name" value="{{ old('name') }}">
+                  <input class="form-control col-6 col-sm-6 ml-sm-auto" type="text" placeholder="Apellido" name="last_name" value="{{ old('last_name') }}">
                 </div>
                 <label>
-                  <div class="d-inline ">
+                  <div class="d-inline">
                   </div>
                 </label>
                 <label>
-                  <div class=" d-inline" >
+                  <div class="d-inline" >
+
                   </div>
                 </label>
 
 
-                <input class="form-control" type="email" placeholder="Ingresá tu e-mail" name="email" value="<?= isset($_POST['email']) ? $_POST['email'] : '' ?>">
+                <input class="form-control" type="text" placeholder="Ingresá tu e-mail" name="email" value="{{ old('email') }}">
                 <label for="email">
 
                 </label>
